@@ -1,0 +1,332 @@
+/* Valluvan Kudil — hero, map and booking form enhancements.
+   Loaded AFTER style.css so these rules override it. */
+
+/* ---------- Hero: shorter, cleaner copy ---------- */
+.hero-main-subtitle.hero-tagline {
+    font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: .02em;
+    max-width: none;
+    margin: 0 0 .35rem;
+}
+.hero-sub-line {
+    font-size: clamp(.95rem, 1.3vw, 1.1rem);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: .85;
+    margin: 0 0 1.4rem;
+}
+.hero-cta {
+    display: inline-block;
+    margin-top: 1.6rem;
+    padding: .85rem 2rem;
+    border-radius: 999px;
+    background: #fff;
+    color: #1e2a1f;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-decoration: none;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.25); color: #1e2a1f; }
+
+/* ---------- Map ---------- */
+.vk-map {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.vk-map-frame {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(20, 40, 25, .18);
+    aspect-ratio: 16 / 8;
+    min-height: 380px;
+    background: #e8ece6;
+}
+.vk-map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: saturate(.9) contrast(1.02);
+}
+.vk-map-card {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    width: min(340px, calc(100% - 56px));
+    background: rgba(255, 255, 255, .96);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+    color: #1e2a1f;
+}
+.vk-map-eyebrow {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+    color: #5c7a4d; font-weight: 600;
+}
+.vk-map-card h3 { margin: .5rem 0 .25rem; font-size: 1.4rem; }
+.vk-map-address { margin: 0 0 .9rem; color: #55604f; line-height: 1.5; }
+.vk-map-meta { list-style: none; padding: 0; margin: 0 0 1.1rem; display: grid; gap: .5rem; font-size: .92rem; }
+.vk-map-meta i { width: 1.2rem; color: #5c7a4d; }
+.vk-map-meta a { color: inherit; font-weight: 600; text-decoration: none; }
+.vk-map-actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: .8rem; }
+.vk-btn {
+    display: inline-flex; align-items: center; gap: .45rem;
+    padding: .65rem 1.1rem; border-radius: 999px; font-size: .9rem; font-weight: 600;
+    text-decoration: none; transition: transform .2s ease, background .2s ease;
+}
+.vk-btn:hover { transform: translateY(-1px); }
+.vk-btn-primary { background: #2f4a2c; color: #fff; }
+.vk-btn-primary:hover { background: #3d5f39; color: #fff; }
+.vk-btn-ghost { border: 1.5px solid #2f4a2c; color: #2f4a2c; }
+.vk-btn-ghost:hover { background: #2f4a2c; color: #fff; }
+.vk-map-card .vk-note { font-size: .78rem; margin: 0; opacity: .75; }
+
+@media (max-width: 767px) {
+    .vk-map-frame { aspect-ratio: auto; min-height: 320px; border-radius: 20px 20px 0 0; }
+    .vk-map-card {
+        position: static; width: 100%;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 18px 40px rgba(20, 40, 25, .12);
+    }
+}
+
+/* ---------- Booking form ---------- */
+.vk-form { display: grid; gap: 1.1rem; margin-top: 1.5rem; }
+.vk-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.vk-form .form-group { margin: 0; }
+.vk-form label {
+    display: block; margin-bottom: .45rem;
+    font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+}
+.vk-optional { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .6; }
+
+.vk-input {
+    display: flex; align-items: center; gap: .6rem;
+    border: 1.5px solid rgba(0, 0, 0, .14);
+    border-radius: 12px;
+    padding: 0 .9rem;
+    background: #fff;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+.vk-input:focus-within { border-color: #2f4a2c; box-shadow: 0 0 0 4px rgba(47, 74, 44, .12); }
+.vk-input > i { color: #7a8c72; font-size: .95rem; }
+.vk-input input {
+    flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+    padding: .85rem 0; font-size: 1rem; width: 100%;
+}
+.vk-form textarea {
+    width: 100%; border: 1.5px solid rgba(0, 0, 0, .14); border-radius: 12px;
+    padding: .85rem .9rem; font-size: 1rem; resize: vertical; background: #fff;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+.vk-form textarea:focus { outline: 0; border-color: #2f4a2c; box-shadow: 0 0 0 4px rgba(47, 74, 44, .12); }
+
+.vk-stepper { padding: 0 .35rem; }
+.vk-stepper input { text-align: center; -moz-appearance: textfield; }
+.vk-stepper input::-webkit-outer-spin-button,
+.vk-stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.vk-step {
+    width: 34px; height: 34px; flex: none; border: 0; border-radius: 50%;
+    background: #eef2ea; color: #2f4a2c; font-size: 1.2rem; line-height: 1; cursor: pointer;
+    transition: background .2s ease;
+}
+.vk-step:hover { background: #dfe8d8; }
+
+.vk-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.vk-chip {
+    border: 1.5px solid rgba(0, 0, 0, .14); background: #fff; color: inherit;
+    padding: .5rem .95rem; border-radius: 999px; font-size: .88rem; cursor: pointer;
+    transition: all .2s ease;
+}
+.vk-chip:hover { border-color: #2f4a2c; }
+.vk-chip.is-selected { background: #2f4a2c; border-color: #2f4a2c; color: #fff; }
+
+.vk-submit {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+    width: 100%; padding: 1rem 1.4rem; border: 0; border-radius: 14px;
+    background: #25a05a; color: #fff; font-size: 1.02rem; font-weight: 600; cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.vk-submit:hover { background: #1f8b4e; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 160, 90, .35); }
+.vk-submit i { font-size: 1.25rem; }
+.vk-form-note { font-size: .8rem; opacity: .75; margin: 0; }
+.vk-form-note i { margin-right: .35rem; }
+
+@media (max-width: 575px) {
+    .vk-form-row { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   Valluvan Kudil — content-update additions
+   Same palette, fonts and reveal/transition system as style.css.
+   ===================================================================== */
+
+/* ---------- Hanging wooden plank signboard (uses assets/plank-board.png) ---------- */
+.plank-wrap { padding-top: 64px; display: flex; justify-content: center; }
+.plank-sign {
+    position: relative;
+    width: min(100%, 760px);
+    aspect-ratio: 849 / 176;
+    background: url("../assets/plank-board.png") center / 100% 100% no-repeat;
+    container-type: inline-size;
+    transform-origin: 50% -64px;
+    filter: drop-shadow(0 20px 18px rgba(60, 35, 10, .28));
+}
+.plank-sign--sm { width: min(100%, 600px); }
+/* ropes that carry the board (the plank art already has the rope knots) */
+.plank-sign::before,
+.plank-sign::after {
+    content: "";
+    position: absolute;
+    top: -64px;
+    height: calc(64px + 35%);
+    width: 6px;
+    border-radius: 3px;
+    background: repeating-linear-gradient(35deg, #b5472b 0 3px, #8a321d 3px 5px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 40%);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 40%);
+    z-index: -1;
+}
+.plank-sign::before { left: 7.3%; transform: translateX(-50%); }
+.plank-sign::after  { left: 92.5%; transform: translateX(-50%); }
+
+.plank-sign-inner {
+    position: absolute;
+    inset: 8% 14% 22% 14%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #3a2010;
+    text-shadow: 0 1px 0 rgba(255, 233, 190, .55);
+}
+.plank-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(15px, 6.4cqw, 52px);
+    line-height: 1.08;
+    letter-spacing: .01em;
+    color: #3a2010;
+    margin: 0;
+}
+.plank-title.is-tamil { font-family: 'Noto Serif Tamil', var(--font-heading), serif; font-size: clamp(15px, 5.6cqw, 46px); }
+.plank-sub {
+    font-family: var(--font-body);
+    font-size: clamp(9px, 2.1cqw, 16px);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #5a3317;
+    margin: .35em 0 0;
+}
+@media (max-width: 520px) { .plank-sub { display: none; } .plank-wrap { padding-top: 48px; } }
+
+/* drop-in + gentle sway when the section reveals (same trigger as .reveal) */
+.plank-wrap.reveal .plank-sign { opacity: 0; transform: rotate(-4deg) translateY(-14px); }
+.plank-wrap.reveal.is-visible .plank-sign {
+    opacity: 1;
+    animation: plankDrop 1.4s cubic-bezier(.16, 1, .3, 1) both, plankSway 7s ease-in-out 1.4s infinite;
+}
+@keyframes plankDrop {
+    0%   { opacity: 0; transform: rotate(-4deg) translateY(-14px); }
+    55%  { opacity: 1; transform: rotate(1.6deg) translateY(0); }
+    80%  { transform: rotate(-.7deg); }
+    100% { opacity: 1; transform: rotate(0); }
+}
+@keyframes plankSway {
+    0%, 100% { transform: rotate(0); }
+    50%      { transform: rotate(.7deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .plank-wrap.reveal .plank-sign,
+    .plank-wrap.reveal.is-visible .plank-sign { animation: none; opacity: 1; transform: none; }
+}
+
+/* ---------- Kural quote block ---------- */
+.kural-card {
+    position: relative;
+    height: 100%;
+    padding: clamp(2rem, 4vw, 3.2rem);
+    background: #f6f3ec;
+    box-shadow: 0 18px 48px rgba(96, 114, 68, .08);
+    text-align: center;
+}
+.kural-card::before {
+    content: "\201C";
+    position: absolute; top: .2rem; left: 1.4rem;
+    font-family: var(--font-heading); font-size: 6rem; line-height: 1;
+    color: rgba(145, 131, 108, .35);
+}
+.kural-ta {
+    font-family: 'Noto Serif Tamil', var(--font-heading), serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    line-height: 1.8;
+    color: var(--color-primary);
+    margin: 1rem 0 1.2rem;
+}
+.kural-ref {
+    display: block;
+    font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--color-secondary); font-weight: 600; margin-bottom: 1rem;
+}
+.kural-meaning {
+    font-family: var(--font-heading);
+    font-size: 1.35rem; font-style: italic; line-height: 1.5;
+    color: var(--color-primary); opacity: .9; margin: 0;
+}
+
+/* ---------- Ticked lists + numbered pillars ---------- */
+.vk-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .6rem; }
+.vk-list li { position: relative; padding-left: 1.5rem; color: var(--color-primary); opacity: .88; line-height: 1.5; }
+.vk-list li::before {
+    content: ""; position: absolute; left: 0; top: .6em;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--color-secondary);
+}
+.vk-sublabel {
+    display: block; margin: 1.6rem 0 .2rem;
+    font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--color-secondary); font-weight: 600;
+}
+.fac-tab-pane .vk-list { margin-top: .8rem; }
+.fac-tab-pane .vk-list li { font-size: .95rem; }
+
+.vk-pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+.vk-pillar { text-align: center; padding: 1.6rem 1rem; border-top: 1px solid rgba(96, 114, 68, .18); }
+.vk-pillar span { display: block; font-family: var(--font-accent); font-size: 2.2rem; color: var(--color-secondary); line-height: 1; }
+.vk-pillar h3 { font-size: 1.5rem; margin: .4rem 0 0; }
+@media (max-width: 767px) { .vk-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- Booking facts grid ---------- */
+.vk-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.vk-fact { background: #f6f3ec; padding: 1.8rem 1.5rem; box-shadow: 0 18px 48px rgba(96, 114, 68, .08); }
+.vk-fact i { color: var(--color-secondary); font-size: 1.2rem; margin-bottom: .8rem; display: block; }
+.vk-fact h3 { font-size: 1.5rem; margin: 0 0 .4rem; }
+.vk-fact p, .vk-fact a { margin: 0; color: var(--color-primary); opacity: .85; font-size: .95rem; line-height: 1.5; text-decoration: none; }
+@media (max-width: 991px) { .vk-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 575px) { .vk-facts { grid-template-columns: 1fr; } }
+
+.vk-center { text-align: center; }
+.vk-lead { max-width: 760px; margin: 2.5rem auto 0; text-align: center; color: var(--color-primary); opacity: .85; line-height: 1.7; }
+.vk-cta-row { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 2rem; }
+.vk-panel-cta { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+
+/* showcase chips with longer labels */
+.room-showcase-spec { white-space: normal; }
+.room-showcase-text + .room-showcase-text { margin-top: 1rem; }
+
+/* enquiry hint under the type chips */
+.vk-type-hint { margin: .7rem 0 0; font-size: .88rem; color: var(--color-primary); opacity: .8; line-height: 1.5; }
+
+/* ---------- Hero legibility + layout fixes for the longer tagline ---------- */
+.hero-center-content .hero-sub-line { color: #fff; text-shadow: 0 2px 12px rgba(0, 0, 0, .55); opacity: .95; }
+.hero-center-content .hero-main-subtitle { text-shadow: 0 2px 14px rgba(0, 0, 0, .5); }
+.hero-center-content .hero-badge { display: flex; }
+.hero-center-content .hero-badge-item { color: #fff; }
+.plank-title.is-long { font-size: clamp(13px, 4.6cqw, 38px); white-space: nowrap; }
